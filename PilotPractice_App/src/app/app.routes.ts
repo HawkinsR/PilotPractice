@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuestionsComponent } from './pages/questions/questions.component';
 import { QuestionComponent } from './components/question/question.component';
+import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,7 @@ export const routes: Routes = [
   },
   {
     path:'question/:id',
-    component: QuestionComponent,
+    component: QuestionDetailComponent,
     title: 'Question'
   },
 ];

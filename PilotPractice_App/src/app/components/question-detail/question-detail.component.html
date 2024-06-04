@@ -1,16 +1,16 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <h3>Question: {{ question.title }}</h3>
-      <p>{{ question.questionText }}</p>
+      <h3>{{ question?.title }}</h3>
+      <h6>{{ question?.id }}</h6>
+      <p>{{ question?.questionText }}</p>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-      <p>{{ question.answerA }}</p>
-      <p>{{ question.answerB }}</p>
-      <p>{{ question.answerC }}</p>
-      <p>{{ question.answerD }}</p>
-
+      <p>A: {{ question?.answerA }}</p>
+      <p>B: {{ question?.answerB }}</p>
+      <p>C: {{ question?.answerC }}</p>
+      <p>D: {{ question?.answerD }}</p>
     </div>
   </div>
 </main>

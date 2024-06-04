@@ -1,6 +1,15 @@
-<section>
-  <app-question
-    *ngFor="let question of questionList"
-      [question]="question"
-  ></app-question>
-</section>
+<div class="question-list">
+  <ul>
+    <li *ngFor="let question of questionList"
+          [class.selected]="question === selectedQuestion"
+          (click)="onSelect(question)">
+      <span>{{ question.title }}</span>
+    </li>
+  </ul>
+</div>
+<div *ngIf="selectedQuestion">
+  <button [routerLink]="['/question', selectedQuestion.id]">
+    <h3>Question: {{ selectedQuestion.title }}</h3>
+    <p>{{ selectedQuestion.questionText }}</p>
+  </button>
+</div>
