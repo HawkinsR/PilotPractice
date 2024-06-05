@@ -1,16 +1,31 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <h3>{{ question?.title }}</h3>
-      <h6>{{ question?.id }}</h6>
-      <p>{{ question?.questionText }}</p>
+      <div class="question">
+        <h3>{{ question?.title }}</h3>
+        <h6>{{ question?.id }}</h6>
+        <br>
+        <p>{{ question?.questionText }}</p>
+      </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
-      <p>A: {{ question?.answerA }}</p>
-      <p>B: {{ question?.answerB }}</p>
-      <p>C: {{ question?.answerC }}</p>
-      <p>D: {{ question?.answerD }}</p>
+      <div class="answers">
+        <div class="pill" [class.correct] = "isCorrect" [class.incorrect] = "isIncorrect">
+          <p>A: {{ question?.answerA }}</p>
+        </div>
+        <div class="pill" [class.correct] = "isCorrect" [class.incorrect] = "isIncorrect">
+          <p>B: {{ question?.answerB }}</p>
+        </div>
+        <div class="pill" [class.correct] = "isCorrect" [class.incorrect] = "isIncorrect">
+          <p>C: {{ question?.answerC }}</p>
+        </div>
+        <div class="pill" [class.correct] = "isCorrect" [class.incorrect] = "isIncorrect">
+          <p>D: {{ question?.answerD }}</p>
+        </div>
+        <button (click)="showAnswer()">Show Answer</button>
+      </div>
+
     </div>
   </div>
 </main>

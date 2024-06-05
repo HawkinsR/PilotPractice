@@ -17,10 +17,16 @@ export class QuestionDetailComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   questionService = inject(QuestionService);
   question: Question | undefined;
+  isCorrect: boolean = false;
+  isIncorrect: boolean = false;
 
   constructor() {
     const questionId = this.route.snapshot.params['id'];
     this.question = this.questionService.getQuestionById(questionId);
+  }
+
+  public showAnswer() {
+    this.isCorrect = true;
   }
 
 }
