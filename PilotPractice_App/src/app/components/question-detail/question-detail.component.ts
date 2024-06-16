@@ -17,8 +17,8 @@ export class QuestionDetailComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   questionService = inject(QuestionService);
   question: Question | undefined;
-  isCorrect: boolean = false;
-  isIncorrect: boolean = false;
+  hideAnswer: boolean = true;
+
 
   constructor() {
     const questionId = this.route.snapshot.params['id'];
@@ -26,7 +26,6 @@ export class QuestionDetailComponent {
   }
 
   public showAnswer() {
-    this.isCorrect = true;
+    this.hideAnswer = false;
   }
-
 }
