@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy container app to Azure Web App - PilotPractice
+name: UI build and deploy
 
 on:
   push:
@@ -30,7 +30,8 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/hawkinsr/pilotpracticeui:${{ github.sha }}
+        context: ./PilotPracticeUI
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/hawkinsr/pilotpracticeui:${{ github.sha }}, index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/hawkinsr/pilotpracticeui:latest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +49,4 @@ jobs:
         app-name: 'PilotPractice'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_af2a2b095fec43e582000cb1fd64ac08 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/hawkinsr/pilotpracticeui:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/pilotpracticeui:${{ github.sha }}'
