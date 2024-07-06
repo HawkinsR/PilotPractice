@@ -1,6 +1,6 @@
 FROM node:latest AS build
 WORKDIR /app
-RUN npm install
+RUN npm ci
 RUN npm run build
 
 FROM nginx:latest as host
