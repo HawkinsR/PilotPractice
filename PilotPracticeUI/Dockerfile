@@ -1,6 +1,6 @@
 FROM node:latest AS build
 WORKDIR /app
-RUN chown -R app/app
+RUN chown -R app /app
 RUN npm ci
 RUN npm run build
 
