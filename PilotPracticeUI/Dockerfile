@@ -1,0 +1,9 @@
+FROM node:latest AS build
+WORKDIR /app
+RUN npm install
+RUN npm run build
+
+FROM nginx:latest as host
+COPE --from=build /app/dist/pilot-practice-ui/browser /usr/share/nginx/html
+EXPOSE 80
+EXPOSE 443
