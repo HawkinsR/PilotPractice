@@ -2,14 +2,14 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
-import { QuestionComponent } from './../../components/question/question.component';
+import { QuestionDetailComponent } from './../../components/question-detail/question-detail.component';
 import { QuestionService } from './../../services/question/question.service';
 import { Question } from './../../interfaces/question';
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [CommonModule, QuestionComponent, RouterLink, RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterOutlet, QuestionDetailComponent ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.css'
 })
@@ -27,5 +27,6 @@ export class QuestionsComponent {
 
   onSelect(question: Question): void {
     this.selectedQuestion = question;
+    console.log("Questions Component: " + this.selectedQuestion.id);
   }
 }

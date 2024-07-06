@@ -8,8 +8,5 @@
   </ul>
 </div>
 <div *ngIf="selectedQuestion">
-  <button [routerLink]="['/question', selectedQuestion.id]">
-    <h3>Question: {{ selectedQuestion.title }}</h3>
-    <p>{{ selectedQuestion.questionText }}</p>
-  </button>
+  <app-question-detail [question]="selectedQuestion"/>
 </div>
