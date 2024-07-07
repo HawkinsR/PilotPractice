@@ -1,40 +1,40 @@
-
-namespace PilotPracticeApi;
-
-public class Program
+namespace PilotPracticeApi
 {
-    public static void Main( string[] args )
+    public class Program
     {
-        var CorsPolicy = "";
-        var builder = WebApplication.CreateBuilder( args );
-        builder.Services.AddCors( options =>
+        public static void Main( string[] args )
         {
-            options.AddPolicy ( name: CorsPolicy,
-                                policy =>
-                                {
-                                   policy.AllowAnyOrigin()
-                                        .AllowAnyHeader()
-                                        .AllowAnyMethod();
-                                });
-        });
+            var CorsPolicy = "";
+            var builder = WebApplication.CreateBuilder( args );
+            builder.Services.AddCors( options =>
+            {
+                options.AddPolicy ( name: CorsPolicy,
+                                    policy =>
+                                    {
+                                    policy.AllowAnyOrigin()
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                                    });
+            });
 
-        builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
 
-        var app = builder.Build();
-        app.UseCors( CorsPolicy );
-        if( app.Environment.IsDevelopment() )
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
+            var app = builder.Build();
+            app.UseCors( CorsPolicy );
+            if( app.Environment.IsDevelopment() )
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseAuthorization();
+            app.MapControllers();
+            app.MapGet( "/" , () => $"PilotPracticeApi running: {DateTime.Now}");
+            app.Run();
         }
-
-        app.UseHttpsRedirection();
-        app.UseAuthorization();
-        app.MapControllers();
-        app.MapGet( "/" , () => "PilotPracticeApi running: {0}", DateTime.Now);
-        app.Run();
     }
 }
