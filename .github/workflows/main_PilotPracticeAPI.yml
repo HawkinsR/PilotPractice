@@ -54,4 +54,4 @@ jobs:
         app-name: 'PilotPracticeAPI'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_3b82b1e6d6654844a1317c914e7e8b16 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_fe39101a2e874a4782241b64b5d07afb }}/hawkinsr/pilotpracticeapi:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_fe39101a2e874a4782241b64b5d07afb }}/pilotpracticeapi:${{ github.sha }}'
