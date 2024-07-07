@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PilotPracticeApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class QuestionController : ControllerBase
     {
