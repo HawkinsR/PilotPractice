@@ -37,7 +37,7 @@ jobs:
         push: true
         context: ./PilotPracticeApi/
         tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/pilotpracticeapi:${{ github.sha }}, index.docker.io/${{ secrets.AzureAppService_ContainerUsername_88fdfa0d887b409cbb1d17ac8ed0b539 }}/pilotpracticeapi:latest
-        file: ./PilotPracticeAPI/Dockerfile
+        file: ./PilotPracticeApi/Dockerfile
 
   deploy:
     runs-on: 'ubuntu-latest'
