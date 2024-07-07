@@ -34,7 +34,7 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
-        app.MapGet( "/" , () => "PilotPracticeApi running: {0}",DateTime.Now());
+        app.MapGet( "/" , () => "PilotPracticeApi running: {0}", DateTime.Now);
         app.Run();
     }
 }
