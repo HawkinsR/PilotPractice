@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using PilotPracticeApi.Data;
+using PilotPracticeApi.Controllers;
+
 namespace PilotPracticeApi
 {
     public class Program
@@ -21,6 +25,11 @@ namespace PilotPracticeApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            builder.Services.AddDbContext<Context>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Azure"));
+            });
 
             var app = builder.Build();
             app.UseCors( CorsPolicy );

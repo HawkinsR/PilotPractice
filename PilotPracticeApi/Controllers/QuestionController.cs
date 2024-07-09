@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PilotPracticeApi.Data;
 
 namespace PilotPracticeApi.Controllers
 {
@@ -7,6 +8,15 @@ namespace PilotPracticeApi.Controllers
     [ApiController]
     public class QuestionController : ControllerBase
     {
+        private readonly Context _context;
+        private readonly ILogger<QuestionController> _logger;
+
+        public QuestionController( Context context, ILogger<QuestionController> logger )
+        {
+            this._context = context;
+            this._logger = logger;
+        }
+
         // GET: api/<QuestionController>
         [HttpGet]
         public IEnumerable<string> Get()
