@@ -10,6 +10,11 @@ steps:
 
 - task: Docker@2
   inputs:
+    containerRegistry: 'DockerHub'
+    repository: 'pilotpracticeui'
     command: 'buildAndPush'
     Dockerfile: '**/PilotPracticeUI/Dockerfile'
     buildContext: '**/PilotPracticeUI'
+    tags: |
+      $(Build.BuildId
+      latest
