@@ -7,8 +7,6 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-  
-
 
 - script: dir
   displayName: 'Repo content'
@@ -18,8 +16,8 @@ steps:
     containerRegistry: 'DockerHub'
     repository: 'pilotpracticeui'
     command: 'buildAndPush'
-    Dockerfile: '/PilotPracticeUI/Dockerfile'
-    buildContext: '/PilotPracticeUI'
+    Dockerfile: './PilotPracticeUI/Dockerfile'
+    buildContext: './PilotPracticeUI'
     tags: |
       $(Build.BuildId)
       latest
