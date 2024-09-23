@@ -10,7 +10,7 @@ steps:
   
 
 
-- script: ls -a
+- script: dir
   displayName: 'Repo content'
 
 - task: Docker@2
