@@ -16,5 +16,5 @@ steps:
     Dockerfile: '**/PilotPracticeUI/Dockerfile'
     buildContext: '**/PilotPracticeUI'
     tags: |
-      $(Build.BuildId
+      $(Build.BuildId)
       latest
