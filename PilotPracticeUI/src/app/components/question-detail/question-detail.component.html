@@ -1,0 +1,30 @@
+<main class="main">
+  <div class="content">
+
+    <div class="left-side">
+      <div class="question">
+        <h3>{{ question?.title }}</h3>
+        <h6>{{ question?.id }}</h6>
+        <br>
+        <p>{{ question?.questionText }}</p>
+      </div>
+    </div>
+
+    <div class="divider" role="separator" aria-label="Divider">
+    </div>
+
+    <div class="right-side">
+      <div class="answers">
+        <div class="pill"
+        *ngFor="let answer of this.question?.answers"
+          [ngClass]="(this.hideAnswer) ? 'hide-answer': (this.question?.answers!.indexOf(answer) == this.question?.correctAnswer)? 'correct' : 'incorrect'"
+          (click)="showAnswer()">
+          <div>
+            <p>{{ answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

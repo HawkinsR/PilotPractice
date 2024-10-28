@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuestionsComponent } from './pages/questions/questions.component';
-import { QuestionComponent } from './components/question/question.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 
 export const routes: Routes = [
@@ -18,9 +17,9 @@ export const routes: Routes = [
     title: 'Quiz',
   },
   {
-    path:'questions',
+    path:'question',
     component: QuestionsComponent,
-    title: 'Questions'
+    title: 'Question'
   },
   {
     path:'question/:id',

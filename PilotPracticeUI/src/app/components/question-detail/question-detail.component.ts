@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,15 +14,21 @@ import { Question } from './../../interfaces/question';
 })
 
 export class QuestionDetailComponent {
+  @Input() question?: Question;
+
   route: ActivatedRoute = inject(ActivatedRoute);
   questionService = inject(QuestionService);
-  question: Question | undefined;
-  hideAnswer: boolean = true;
-
-
+  hideAnswer? : boolean = true;
+/*
   constructor() {
-    const questionId = this.route.snapshot.params['id'];
-    this.question = this.questionService.getQuestionById(questionId);
+    // this.question = this.questionService.getQuestionById(this.route.snapshot.params['id']);;
+    console.log("Question Detail Component: " + this.id);
+  }
+*/
+
+  ngOnChanges(question: Question)
+  {
+    this.hideAnswer = true;
   }
 
   public showAnswer() {
